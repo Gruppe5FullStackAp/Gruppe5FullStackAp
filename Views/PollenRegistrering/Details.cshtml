@@ -1,36 +1,18 @@
 @model Eksamen2025Gruppe5.Models.PollenRegistrering
-
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detaljer";
 }
 
-<h1>Details</h1>
-
+<h1>Detaljer</h1>
 <div>
-    <h4>PollenRegistrering</h4>
-    <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Dato)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Dato)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Område)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Område)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nivå)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nivå)
-        </dd>
+        <dt class="col-sm-2">Dato</dt>
+        <dd class="col-sm-10">@Model.Dato.ToShortDateString()</dd>
+        <dt class="col-sm-2">Område</dt>
+        <dd class="col-sm-10">@Model.Område</dd>
+        <dt class="col-sm-2">Nivå</dt>
+        <dd class="col-sm-10">@Model.Nivå</dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Rediger</a>
+<a asp-action="Index" class="btn btn-secondary">Tilbake til liste</a>
