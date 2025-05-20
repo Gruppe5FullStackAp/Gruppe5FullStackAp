@@ -7,8 +7,8 @@ namespace Eksamen2025Gruppe5.Models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public List<IndexInfo> Indexes { get; set; }
+        public List<IndexInfo> Indexes { get; set; } = new List<IndexInfo>();
         public int PollenResponseId { get; set; }
-        public PollenResponse PollenResponse { get; set; }
+        public PollenResponse? PollenResponse { get; set; }
     }
 }

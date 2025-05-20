@@ -1,0 +1,36 @@
+@model Eksamen2025Gruppe5.Models.PollenRegistrering
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PollenRegistrering</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dato)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dato)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Område)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Område)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nivå)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nivå)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

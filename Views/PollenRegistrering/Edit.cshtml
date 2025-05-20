@@ -1,0 +1,44 @@
+@model Eksamen2025Gruppe5.Models.PollenRegistrering
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PollenRegistrering</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Dato" class="control-label"></label>
+                <input asp-for="Dato" class="form-control" />
+                <span asp-validation-for="Dato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Område" class="control-label"></label>
+                <input asp-for="Område" class="form-control" />
+                <span asp-validation-for="Område" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nivå" class="control-label"></label>
+                <input asp-for="Nivå" class="form-control" />
+                <span asp-validation-for="Nivå" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
