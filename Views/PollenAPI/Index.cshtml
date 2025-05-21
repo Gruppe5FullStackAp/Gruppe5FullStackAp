@@ -1,5 +1,33 @@
+@model IEnumerable<Eksamen2025Gruppe5.Models.PollenAPIViewModel>
 @{
     ViewData["Title"] = "Pollenvarsel (API)";
 }
-<h1>Pollenvarsel fra API</h1>
-<p>Her kommer pollenvarsel-data hentet fra eksternt API.</p>
+
+<h1>Pollenvarsel for 5 kommende dager</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Dato</th>
+            <th>Kode</th>
+            <th>Navn</th>
+            <th>Verdi</th>
+            <th>Kategori</th>
+            <th>Beskrivelse</th>
+            <th>Farge (RGB)</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var dag in Model)
+    {
+        <tr>
+            <td>@dag.Date</td>
+            <td>@dag.Code</td>
+            <td>@dag.DisplayName</td>
+            <td>@dag.Value</td>
+            <td>@dag.Category</td>
+            <td>@dag.IndexDescription</td>
+            <td>@dag.Color</td>
+        </tr>
+    }
+    </tbody>
+</table>
