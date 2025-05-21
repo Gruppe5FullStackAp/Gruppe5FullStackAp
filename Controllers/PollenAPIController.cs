@@ -8,8 +8,8 @@ namespace Eksamen2025Gruppe5.Controllers
     {
         public IActionResult Index()
         {
-            // Dummydata: pollenvarsel for 5 kommende dager
-            var pollenVarsel = new List<PollenAPIViewModel>
+            // Dette er eksempeldata. Senere skal dette byttes ut med data fra API/database.
+            var pollenVarsler = new List<PollenAPIViewModel>
             {
                 new PollenAPIViewModel
                 {
@@ -18,8 +18,8 @@ namespace Eksamen2025Gruppe5.Controllers
                     Value = 5,
                     Category = "Tre",
                     IndexDescription = "Høyt nivå",
-                    Color = "R:255, G:0, B:0",
-                    Date = "22.05.2025"
+                    Date = "22.05.2025",
+                    Red = 255, Green = 0, Blue = 0    // Rød for høyt nivå
                 },
                 new PollenAPIViewModel
                 {
@@ -28,42 +28,13 @@ namespace Eksamen2025Gruppe5.Controllers
                     Value = 3,
                     Category = "Gress",
                     IndexDescription = "Moderat nivå",
-                    Color = "R:255, G:255, B:0",
-                    Date = "23.05.2025"
+                    Date = "23.05.2025",
+                    Red = 255, Green = 255, Blue = 0  // Gul for moderat nivå
                 },
-                new PollenAPIViewModel
-                {
-                    Code = "SA",
-                    DisplayName = "Salix",
-                    Value = 2,
-                    Category = "Tre",
-                    IndexDescription = "Lavt nivå",
-                    Color = "R:0, G:255, B:0",
-                    Date = "24.05.2025"
-                },
-                new PollenAPIViewModel
-                {
-                    Code = "HS",
-                    DisplayName = "Hassel",
-                    Value = 4,
-                    Category = "Tre",
-                    IndexDescription = "Middels nivå",
-                    Color = "R:255, G:165, B:0",
-                    Date = "25.05.2025"
-                },
-                new PollenAPIViewModel
-                {
-                    Code = "OR",
-                    DisplayName = "Or",
-                    Value = 3,
-                    Category = "Tre",
-                    IndexDescription = "Moderat nivå",
-                    Color = "R:255, G:255, B:0",
-                    Date = "26.05.2025"
-                }
+                // Legg til flere dager etter behov
             };
 
-            return View(pollenVarsel);
+            return View(pollenVarsler);
         }
     }
 }

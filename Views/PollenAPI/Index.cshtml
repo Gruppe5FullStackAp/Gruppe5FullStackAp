@@ -1,9 +1,11 @@
 @model IEnumerable<Eksamen2025Gruppe5.Models.PollenAPIViewModel>
+
 @{
-    ViewData["Title"] = "Pollenvarsel (API)";
+    ViewData["Title"] = "Pollenvarsel for 5 kommende dager";
 }
 
 <h1>Pollenvarsel for 5 kommende dager</h1>
+
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -13,21 +15,23 @@
             <th>Verdi</th>
             <th>Kategori</th>
             <th>Beskrivelse</th>
-            <th>Farge (RGB)</th>
+            <th>Farge (nivå)</th>
         </tr>
     </thead>
     <tbody>
-    @foreach (var dag in Model)
-    {
-        <tr>
-            <td>@dag.Date</td>
-            <td>@dag.Code</td>
-            <td>@dag.DisplayName</td>
-            <td>@dag.Value</td>
-            <td>@dag.Category</td>
-            <td>@dag.IndexDescription</td>
-            <td>@dag.Color</td>
-        </tr>
-    }
+        @foreach (var varsel in Model)
+        {
+            <tr>
+                <td>@varsel.Date</td>
+                <td>@varsel.Code</td>
+                <td>@varsel.DisplayName</td>
+                <td>@varsel.Value</td>
+                <td>@varsel.Category</td>
+                <td>@varsel.IndexDescription</td>
+                <td style="background-color: rgb(@varsel.Red, @varsel.Green, @varsel.Blue);">
+                    RGB(@varsel.Red, @varsel.Green, @varsel.Blue)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -7,7 +7,11 @@ namespace Eksamen2025Gruppe5.Models
         public int Value { get; set; }
         public string? Category { get; set; }
         public string? IndexDescription { get; set; }
-        public string? Color { get; set; }   // For enkelhet: vises som f.eks. "R:255, G:0, B:0"
-        public string? Date { get; set; }    // Dato for prognosen
+        public string? Date { get; set; }
+
+        // Color-info (RGB)
+        public int Red { get; set; }
+        public int Green { get; set; }
+        public int Blue { get; set; }
     }
 }
