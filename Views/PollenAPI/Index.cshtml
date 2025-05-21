@@ -1,11 +1,15 @@
 @model IEnumerable<Eksamen2025Gruppe5.Models.PollenAPIViewModel>
-
 @{
-    ViewData["Title"] = "Pollenvarsel for 5 kommende dager";
+    ViewData["Title"] = "Pollenvarsel for de 5 neste dagene";
 }
+<h1>@ViewData["Title"]</h1>
 
-<h1>Pollenvarsel for 5 kommende dager</h1>
-
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Ingen pollenvarsel-data å vise (prøv igjen senere).</div>
+}
+else
+{
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -19,19 +23,18 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var varsel in Model)
-        {
-            <tr>
-                <td>@varsel.Date</td>
-                <td>@varsel.Code</td>
-                <td>@varsel.DisplayName</td>
-                <td>@varsel.Value</td>
-                <td>@varsel.Category</td>
-                <td>@varsel.IndexDescription</td>
-                <td style="background-color: rgb(@varsel.Red, @varsel.Green, @varsel.Blue);">
-                    RGB(@varsel.Red, @varsel.Green, @varsel.Blue)
-                </td>
-            </tr>
-        }
+    @foreach (var varsel in Model)
+    {
+        <tr>
+            <td>@varsel.Date</td>
+            <td>@varsel.Code</td>
+            <td>@varsel.DisplayName</td>
+            <td>@varsel.Value</td>
+            <td>@varsel.Category</td>
+            <td>@varsel.IndexDescription</td>
+            <td style="background-color:@($"rgb({varsel.Red},{varsel.Green},{varsel.Blue})");"></td>
+        </tr>
+    }
     </tbody>
 </table>
+}
